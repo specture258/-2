@@ -26,7 +26,7 @@ public class Car {
         return statue;
     }
 
-    public String moving(){
+    public String move(){
        return statue = getStatue() + "-";
     }
 

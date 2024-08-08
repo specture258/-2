@@ -31,7 +31,7 @@ public class InputViewValidation {
     }
 
     public void carNameLengthIsCorrect(String carName) {
-        int LIMIT_LENGTH = 5;
+        final int LIMIT_LENGTH = 5;
         String[] cars = carName.split(",");
         for(String car : cars){
             if(car.length() > LIMIT_LENGTH){

@@ -12,31 +12,31 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void result(){
+    public void printResult(){
         System.out.println("실행 결과");
     }
 
-    public void carList(Car car){
+    public void printCarList(Car car){
         System.out.print(car.toString() + " : ");
     }
 
-    public void status(Car car){
+    public void printStatus(Car car){
         System.out.println(car.getStatue());
     }
 
-    public void move(Car car){
-        System.out.println(car.moving());
+    public void printMoving(Car car){
+        System.out.println(car.move());
     }
 
-    public void lineBreak(){
+    public void printLineBreak(){
         System.out.println();
     }
 
-    public void finalWinner(){
+    public void printFinalWinner(){
         System.out.print("최종 우승자 : ");
     }
 
-    public void finalWinnerName(String winners){
+    public void printFinalWinnerName(String winners){
         System.out.print(winners);
     }
 

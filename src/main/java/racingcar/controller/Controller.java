@@ -39,16 +39,16 @@ public class Controller {
     }
 
     public void run(){
-        outputView.result();
+        outputView.printResult();
         while (tryCount >0) {
             getCarMoving();
             tryCount--;
-            outputView.lineBreak();
+            outputView.printLineBreak();
         }
     }
 
     public void end(){
-        outputView.finalWinner();
+        outputView.printFinalWinner();
         getFinalWinner();
     }
 
@@ -64,7 +64,7 @@ public class Controller {
 
     public void getCarMoving(){
         for (Car car : carObject) {
-            outputView.carList(car);
+            outputView.printCarList(car);
             createCarMoving(car);
         }
     }
@@ -72,11 +72,11 @@ public class Controller {
     public void createCarMoving(Car car){
         RandomNumber randomNumber = new RandomNumber();
         if(randomNumber.canMoving()){
-            outputView.move(car);
+            outputView.printMoving(car);
             car.updatePosition();
         }
         else{
-            outputView.status(car);
+            outputView.printStatus(car);
         }
     }
 
@@ -85,7 +85,7 @@ public class Controller {
             positionList.add(car.getPosition());
         }
         createFinalWinner(Collections.max(positionList));
-        outputView.finalWinnerName(String.join(", ", winnersList));
+        outputView.printFinalWinnerName(String.join(", ", winnersList));
     }
 
     private void createFinalWinner(Integer maxPosition) {
