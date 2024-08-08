@@ -14,7 +14,7 @@ public class Controller {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private Integer TRY_COUNT = 0;
+    private int tryCount = 0;
     private List<Car> carObject;
     private final List<String> winnersList = new ArrayList<>();
     private final List<Integer> positionList = new ArrayList<>();
@@ -35,14 +35,14 @@ public class Controller {
         carObject = getCarObject(inputView.inputCarName());
 
         outputView.inputTryCount();
-        TRY_COUNT = getTryCount(inputView.inputTryCount());
+        tryCount = Integer.parseInt(inputView.inputTryCount());
     }
 
     public void run(){
         outputView.result();
-        while (TRY_COUNT>0) {
+        while (tryCount >0) {
             getCarMoving();
-            TRY_COUNT--;
+            tryCount--;
             outputView.lineBreak();
         }
     }
@@ -60,10 +60,6 @@ public class Controller {
             carObject.add(car);
         }
         return carObject;
-    }
-
-    public int getTryCount(String tryCount){
-        return Integer.parseInt(tryCount);
     }
 
     public void getCarMoving(){
@@ -100,6 +96,4 @@ public class Controller {
             }
         }
     }
-
-
 }

@@ -30,5 +30,4 @@ public class InputView {
          }
          return tryCount;
     }
-
 }
