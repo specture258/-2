@@ -38,34 +38,38 @@ BUILD SUCCESSFUL in 0s
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`를 발생시키고, "[ERROR]"로 시작하는 에러 메시지를 출력 후 그 부분부터 입력을 다시 받는다.
 - 아래의 프로그래밍 실행 결과 예시와 동일하게 입력과 출력이 이루어져야 한다.
 
-패키지 구조
-controller / domain / view 
-controller : domain과 view 패키지의 클래스를 통해서 게임을 진행시킴
-domain     : 구현에 필요한 객체
-view       : 화면에 보이는 것들
+## 패키지 구조
+- ### controller / domain / view 
+- ### controller : domain과 view 패키지의 클래스를 통해서 게임을 진행시킴
+- ### domain     : 구현에 필요한 객체
+- ### view       : 화면에 보이는 것들
 
-기능 목록
-차 이름 입력 -> 이름에 대한 검증 + 예외 메시지 출력
-시도 횟수 입력 -> 횟수가 숫자인지에 대한 검증 + 예외 메시지 출력
+## 기능 목록
+- 차 이름 입력 -> 이름에 대한 검증 + 예외 메시지 출력
+- 시도 횟수 입력 -> 횟수가 숫자인지에 대한 검증 + 예외 메시지 출력
+- 자동차 객체 생성 (생성자 : name, 변경 x)
+- 랜덤 숫자 생성
+- 자동차 이동 -> setPosition() 사용 x , 추가 생성자 사용 x
+- 최종 우승자 출력
 
-프로그램은 3가지 실행으로 나뉘어짐 -> init(), run(), end()
-init() : 자동차 이름과 시도 횟수 입력
-run()  : 실행 결과
-end()  : 최종 우승자
+### 프로그램은 3가지 실행으로 나뉘어짐 -> init(), run(), end()
+- init() : 자동차 이름과 시도 횟수 입력
+- run()  : 실행 결과 출력
+- end()  : 최종 우승자 출력
 
-run()
- 자동차 객체를 만들고 이동을 하는 모습을 화면으로 나타내야됨
- getCarObject()로 carName을 가진 자동차 객체 생성
- toString() 매서드로 carName 표시
+### run()
+- 자동차 객체를 만들고 이동을 하는 모습을 화면으로 나타내야됨
+- getCarObject()로 carName을 가진 자동차 객체 생성
+- toString() 매서드로 carName 표시
  
- RandomNumber() 클래스를 통해서 자동차가 갈 수 있는지 없는지 판단
- Car 클래스의 setPosition()을 사용하지 않기 위해 position을 증가시키는 updatePosition() 메서드 활용
- 이동하는 모습을 표현하기 위해 이동 상태를 표현하는 statue 변수 사용
- RandomNumber의 결과에 따라서 현재 상태에 이동을 계속해서 추가
+- RandomNumber() 클래스를 통해서 자동차가 갈 수 있는지 없는지 판단
+- Car 클래스의 setPosition()을 사용하지 않기 위해 position을 증가시키는 updatePosition() 메서드 활용
+- 이동하는 모습을 표현하기 위해 이동 상태를 표현하는 statue 변수(String) 사용
+- RandomNumber의 결과에 따라서 현재 상태에 이동을 계속해서 추가
  
-end()
- 최종위치를 가지고 있는 positionList를 만든다음에 maxPosition을 구하고
- maxPosition에 해당하는 carName을 List에 담아서 출력
+### end()
+- 최종위치를 가지고 있는 positionList를 만든다음에 maxPosition을 구하고
+- maxPosition에 해당하는 carName을 List에 담아서 출력
 
 
 <br>
