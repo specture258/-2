@@ -38,9 +38,7 @@ public class CarService {
             OutputView.printMoving(car);
             car.updatePosition();
         }
-        else{
-            OutputView.printStatus(car);
-        }
+        OutputView.printStatus(car);
     }
 
 }

@@ -25,7 +25,7 @@ public class OutputView {
     }
 
     public static void printMoving(Car car){
-        System.out.println(car.move());
+        System.out.print(car.move());
     }
 
     public static void printLineBreak(){
