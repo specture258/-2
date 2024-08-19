@@ -2,6 +2,8 @@ package racingcar.view;
 
 public class InputViewValidation {
 
+    final String BLANK = "";
+
     public boolean validateCarNameLength(String carName) {
         try{
             carNameLengthIsCorrect(carName);
@@ -36,6 +38,9 @@ public class InputViewValidation {
         for(String car : cars){
             if(car.length() > LIMIT_LENGTH){
                 throw new IllegalArgumentException("[ERROR] 자동차 이름은 5글자 이하여야한다.");
+            }
+            if(BLANK.equals(car.trim())){
+                throw new IllegalArgumentException("[ERROR] 자동차 이름이 없습니다");
             }
         }
     }
