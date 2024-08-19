@@ -1,6 +1,8 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.CarRepository;
+import racingcar.domain.CarService;
 import racingcar.domain.RandomNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -18,10 +20,12 @@ public class Controller {
     private List<Car> carObject;
     private final List<String> winnersList = new ArrayList<>();
     private final List<Integer> positionList = new ArrayList<>();
+    private final CarService carService;
 
-    public Controller(InputView inputView, OutputView outputView) {
+    public Controller(InputView inputView, OutputView outputView, CarService carService) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.carService = carService;
     }
 
     public void race(){
@@ -32,7 +36,7 @@ public class Controller {
 
     public void init() {
         outputView.inputCarName();
-        carObject = getCarObject(inputView.inputCarName());
+        carObject = carService.getCarObject();
 
         outputView.inputTryCount();
         tryCount = Integer.parseInt(inputView.inputTryCount());
@@ -41,7 +45,7 @@ public class Controller {
     public void run(){
         outputView.printResult();
         while (tryCount >0) {
-            getCarMoving();
+            carService.getCarMoving();
             tryCount--;
             outputView.printLineBreak();
         }
@@ -50,34 +54,6 @@ public class Controller {
     public void end(){
         outputView.printFinalWinner();
         getFinalWinner();
-    }
-
-    public List<Car> getCarObject(String cars){
-        List<Car> carObject = new ArrayList<>();
-        String[] carArray = cars.split(",");
-        for(String carName : carArray){
-            Car car = new Car(carName);
-            carObject.add(car);
-        }
-        return carObject;
-    }
-
-    public void getCarMoving(){
-        for (Car car : carObject) {
-            outputView.printCarList(car);
-            createCarMoving(car);
-        }
-    }
-
-    public void createCarMoving(Car car){
-        RandomNumber randomNumber = new RandomNumber();
-        if(randomNumber.canMoving()){
-            outputView.printMoving(car);
-            car.updatePosition();
-        }
-        else{
-            outputView.printStatus(car);
-        }
     }
 
     public void getFinalWinner(){
