@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import racingcar.view.InputView;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class CarRepository {
 
@@ -13,15 +11,8 @@ public class CarRepository {
         this.inputView = inputView;
     }
 
-    public String[] createCarObject(){
+    public String[] createCarArray(){
         String cars = inputView.inputCarName();
-        String[] carArray = cars.split(",");
-        return carArray;
-
+        return cars.split(",");
     }
-
-
-
-
-
 }

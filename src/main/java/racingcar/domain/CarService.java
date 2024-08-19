@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.view.OutputView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,20 +16,18 @@ public class CarService {
     List<Car> carObject = new ArrayList<>();
 
     public List<Car> getCarObject(){
-        String[] carArray = carRepository.createCarObject();
+        String[] carArray = carRepository.createCarArray();
 
         for(String carName : carArray){
             Car car = new Car(carName);
             carObject.add(car);
         }
-
         return carObject;
     }
 
     public void getCarMoving(){
-
         for (Car car : carObject) {
-            outputView.printCarList(car);
+            OutputView.printCarList(car);
             createCarMoving(car);
         }
     }
@@ -35,11 +35,11 @@ public class CarService {
     public void createCarMoving(Car car){
         RandomNumber randomNumber = new RandomNumber();
         if(randomNumber.canMoving()){
-            outputView.printMoving(car);
+            OutputView.printMoving(car);
             car.updatePosition();
         }
         else{
-            outputView.printStatus(car);
+            OutputView.printStatus(car);
         }
     }
 

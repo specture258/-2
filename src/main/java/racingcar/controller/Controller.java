@@ -1,10 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
-import racingcar.domain.CarRepository;
-import racingcar.domain.CarService;
-import racingcar.domain.RandomNumber;
-import racingcar.view.InputView;
+import racingcar.domain.*;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
@@ -14,18 +10,16 @@ import java.util.List;
 
 public class Controller {
 
-    private final InputView inputView;
-    private final OutputView outputView;
-    private int tryCount = 0;
+
     private List<Car> carObject;
     private final List<String> winnersList = new ArrayList<>();
     private final List<Integer> positionList = new ArrayList<>();
     private final CarService carService;
+    private final TryCount tryCount;
 
-    public Controller(InputView inputView, OutputView outputView, CarService carService) {
-        this.inputView = inputView;
-        this.outputView = outputView;
+    public Controller(CarService carService, TryCount tryCount) {
         this.carService = carService;
+        this.tryCount = tryCount;
     }
 
     public void race(){
@@ -35,24 +29,24 @@ public class Controller {
     }
 
     public void init() {
-        outputView.inputCarName();
+        OutputView.inputCarName();
         carObject = carService.getCarObject();
 
-        outputView.inputTryCount();
-        tryCount = Integer.parseInt(inputView.inputTryCount());
+        OutputView.inputTryCount();
+        tryCount.createTryCount();
     }
 
     public void run(){
-        outputView.printResult();
-        while (tryCount >0) {
+        OutputView.printResult();
+        while (tryCount.getTryCount() >0) {
             carService.getCarMoving();
-            tryCount--;
-            outputView.printLineBreak();
+            tryCount.decreaseCount();
+            OutputView.printLineBreak();
         }
     }
 
     public void end(){
-        outputView.printFinalWinner();
+        OutputView.printFinalWinner();
         getFinalWinner();
     }
 
@@ -61,7 +55,7 @@ public class Controller {
             positionList.add(car.getPosition());
         }
         createFinalWinner(Collections.max(positionList));
-        outputView.printFinalWinnerName(String.join(", ", winnersList));
+        OutputView.printFinalWinnerName(String.join(", ", winnersList));
     }
 
     private void createFinalWinner(Integer maxPosition) {
