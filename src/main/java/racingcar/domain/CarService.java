@@ -37,6 +37,7 @@ public class CarService {
         if(randomNumber.canMoving()){
             OutputView.printMoving(car);
             car.updatePosition();
+            return;
         }
         OutputView.printStatus(car);
     }
