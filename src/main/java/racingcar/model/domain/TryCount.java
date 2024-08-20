@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.model.domain;
 
 import racingcar.view.InputView;
 
@@ -20,10 +20,6 @@ public class TryCount {
     }
 
     public void decreaseCount() {
-        tryCount -=1;
+        tryCount -= 1;
     }
-
-
-
-
 }

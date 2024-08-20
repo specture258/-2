@@ -3,7 +3,7 @@ package racingcar;
 import racingcar.controller.Controller;
 import racingcar.model.repository.CarRepository;
 import racingcar.model.service.CarService;
-import racingcar.domain.TryCount;
+import racingcar.model.domain.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.InputViewValidation;
 
