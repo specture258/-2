@@ -1,5 +1,8 @@
-package racingcar.domain;
+package racingcar.model.service;
 
+import racingcar.domain.Car;
+import racingcar.model.repository.CarRepository;
+import racingcar.domain.RandomNumber;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;

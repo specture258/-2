@@ -1,12 +1,11 @@
 package racingcar;
 
 import racingcar.controller.Controller;
-import racingcar.domain.CarRepository;
-import racingcar.domain.CarService;
+import racingcar.model.repository.CarRepository;
+import racingcar.model.service.CarService;
 import racingcar.domain.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.InputViewValidation;
-import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {

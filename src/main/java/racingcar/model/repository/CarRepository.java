@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.model.repository;
 
 import racingcar.view.InputView;
 
